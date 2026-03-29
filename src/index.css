@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #C9A84C;
+  --gold-light: #F5D680;
+  --gold-dark: #8B6914;
+  --obsidian: #0A0A0A;
+  --charcoal: #111111;
+  --charcoal-light: #1A1A1A;
+  --smoke: #2A2A2A;
+}
+
+* {
+  cursor: none !important;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--obsidian);
+  color: #E8E8E8;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--obsidian); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-light); }
+
+/* Selection */
+::selection { background: rgba(201,168,76,0.3); color: #F5D680; }
+
+/* Noise overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #8B6914 0%, #F5D680 50%, #C9A84C 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gold-shimmer {
+  background: linear-gradient(90deg, #8B6914 0%, #F5D680 25%, #C9A84C 50%, #F5D680 75%, #8B6914 100%);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerText 4s linear infinite;
+}
+
+@keyframes shimmerText {
+  0% { background-position: 0% center; }
+  100% { background-position: 300% center; }
+}
+
+/* Gold glow */
+.gold-glow { box-shadow: 0 0 20px rgba(201,168,76,0.25); }
+.gold-glow-strong { box-shadow: 0 0 40px rgba(201,168,76,0.5), 0 0 80px rgba(201,168,76,0.2); }
+
+/* Glass */
+.glass {
+  background: rgba(17,17,17,0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 16px;
+}
+
+/* Marquee */
+.marquee-track {
+  display: inline-flex;
+  animation: marquee 35s linear infinite;
+  white-space: nowrap;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Card shimmer sweep */
+.card-shimmer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+.card-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.09), transparent);
+  transform: skewX(-20deg);
+  transition: left 0s;
+  z-index: 1;
+  pointer-events: none;
+}
+.card-shimmer:hover::before {
+  left: 150%;
+  transition: left 0.75s ease;
+}
+
+/* Nav link underline */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+.nav-link:hover::after { width: 100%; }
+
+/* Ripple animation */
+@keyframes rippleOut {
+  0%   { transform: scale(0); opacity: 1; }
+  100% { transform: scale(80); opacity: 0; }
+}
+
+/* Section number accent */
+.section-number {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+/* Gradient border card */
+.card-gold-border {
+  border: 1px solid rgba(201,168,76,0.12);
+  border-radius: 16px;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.card-gold-border:hover {
+  border-color: rgba(201,168,76,0.55);
+  box-shadow:
+    0 0 0 1px rgba(201,168,76,0.08),
+    0 8px 40px rgba(201,168,76,0.12),
+    0 2px 12px rgba(0,0,0,0.4);
+}
