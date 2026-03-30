@@ -31,22 +31,21 @@ export default function ParticleField() {
     resize()
     window.addEventListener('resize', resize)
 
-    const createParticle = (): Particle => ({
+    const createParticle = (randomPos = false): Particle => ({
       x: Math.random() * canvas.width,
-      y: canvas.height + 10,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: -(Math.random() * 0.8 + 0.3),
+      y: randomPos ? Math.random() * canvas.height : canvas.height + 10,
+      vx: (Math.random() - 0.5) * 0.6,
+      vy: -(Math.random() * 0.5 + 0.15),
       size: Math.random() * 2 + 0.5,
       opacity: 0,
-      maxOpacity: Math.random() * 0.6 + 0.2,
+      maxOpacity: Math.random() * 0.7 + 0.2,
       life: 0,
-      maxLife: Math.random() * 200 + 150,
+      maxLife: Math.random() * 300 + 200,
     })
 
-    // Init particles
-    for (let i = 0; i < 80; i++) {
-      const p = createParticle()
-      p.y = Math.random() * canvas.height
+    // Init particles spread across whole canvas
+    for (let i = 0; i < 120; i++) {
+      const p = createParticle(true)
       p.life = Math.random() * p.maxLife
       particlesRef.current.push(p)
     }
@@ -90,9 +89,18 @@ export default function ParticleField() {
           p.opacity = p.maxOpacity
         }
 
+        // Center fade: particles near the middle are dimmer
+        const cx = canvas.width / 2
+        const cy = canvas.height / 2
+        const dxC = (p.x - cx) / (canvas.width * 0.5)
+        const dyC = (p.y - cy) / (canvas.height * 0.5)
+        const distCenter = Math.sqrt(dxC * dxC + dyC * dyC) // 0 = center, ~1+ = edges
+        // At center (0) → multiply by 0.15, at edges (1+) → multiply by 1
+        const centerFade = Math.min(1, 0.15 + distCenter * 0.85)
+
         // Draw gold particle
         ctx.save()
-        ctx.globalAlpha = p.opacity
+        ctx.globalAlpha = p.opacity * centerFade
         const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 2)
         gradient.addColorStop(0, '#F5D680')
         gradient.addColorStop(1, 'transparent')
@@ -104,7 +112,7 @@ export default function ParticleField() {
 
         // Reset when out of bounds or dead
         if (p.life >= p.maxLife || p.y < -10 || p.x < -10 || p.x > canvas.width + 10) {
-          particlesRef.current[i] = createParticle()
+          particlesRef.current[i] = createParticle(false)
         }
       })
 
