@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+// useTransform kept for blob parallax
 import { ArrowDown, Sparkles } from 'lucide-react'
 import ParticleField from '../ui/ParticleField'
 
@@ -27,8 +28,7 @@ export default function Hero() {
   // Parallax layers
   const blobY1 = useTransform(scrollYProgress, [0, 1], ['0%', '-30%'])
   const blobY2 = useTransform(scrollYProgress, [0, 1], ['0%', '-20%'])
-  const textY = useTransform(scrollYProgress, [0, 1], ['0%', '25%'])
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
+  // textY and opacity removed — content stays fixed while scrolling
 
   const scrollToNext = () => {
     document.querySelector('#brands')?.scrollIntoView({ behavior: 'smooth' })
@@ -132,10 +132,7 @@ export default function Hero() {
       </motion.div>
 
       {/* ── Main content ── */}
-      <motion.div
-        style={{ y: textY, opacity }}
-        className="relative z-10 max-w-6xl mx-auto px-6 text-center"
-      >
+      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
         {/* Eyebrow */}
         <motion.div
           initial={{ opacity: 0, y: -16 }}
@@ -239,7 +236,7 @@ export default function Hero() {
             </motion.div>
           ))}
         </motion.div>
-      </motion.div>
+      </div>
 
       {/* Scroll arrow */}
       <motion.button
