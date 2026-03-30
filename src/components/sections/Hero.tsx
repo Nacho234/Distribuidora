@@ -38,7 +38,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-obsidian"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-obsidian pt-20"
     >
       {/* ── Aurora blobs ── */}
       <motion.div

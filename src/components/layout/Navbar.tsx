@@ -100,7 +100,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[9989] bg-obsidian/98 flex flex-col items-center justify-center gap-8"
+            className="fixed inset-0 z-[9989] bg-charcoal flex flex-col items-center justify-center gap-8 border-t border-gold/20"
           >
             {links.map((link, i) => (
               <motion.button
