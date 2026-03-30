@@ -8,6 +8,7 @@ export interface Product {
   description: string
   price: number
   stock: number
+  hairTypes: string[]
   badge?: string
   isNew?: boolean
   isBestseller?: boolean
@@ -60,6 +61,7 @@ export const products: Product[] = [
     description: 'Reparación profunda con keratina y aceites esenciales',
     price: 8500,
     stock: 24,
+    hairTypes: ['seco', 'dañado', 'teñido'],
     badge: 'BESTSELLER',
     isBestseller: true,
   },
@@ -73,6 +75,7 @@ export const products: Product[] = [
     description: 'Sérum de acabado con protección térmica hasta 230°C',
     price: 5200,
     stock: 18,
+    hairTypes: ['todo tipo', 'lacio', 'ondulado'],
     isNew: true,
   },
   {
@@ -85,6 +88,7 @@ export const products: Product[] = [
     description: 'Tratamiento intensivo anticaída con biotina y zinc',
     price: 12000,
     stock: 9,
+    hairTypes: ['todo tipo', 'fino', 'debilitado'],
     badge: 'TOP',
   },
   {
@@ -97,6 +101,7 @@ export const products: Product[] = [
     description: 'Coloración permanente con tecnología de triple protección',
     price: 3800,
     stock: 42,
+    hairTypes: ['todo tipo', 'teñido'],
     isBestseller: true,
   },
   {
@@ -109,6 +114,7 @@ export const products: Product[] = [
     description: 'Decoloración de hasta 9 tonos con acción anti-rotura',
     price: 9700,
     stock: 15,
+    hairTypes: ['todo tipo', 'resistente'],
     badge: 'PRO',
   },
   {
@@ -121,6 +127,7 @@ export const products: Product[] = [
     description: 'Neutraliza tonos amarillos y brinda reflejos fríos perfectos',
     price: 4100,
     stock: 30,
+    hairTypes: ['teñido', 'rubio'],
     isNew: true,
   },
   {
@@ -133,6 +140,7 @@ export const products: Product[] = [
     description: 'Fijación extrema con acabado natural sin residuos',
     price: 3200,
     stock: 55,
+    hairTypes: ['todo tipo', 'lacio', 'ondulado'],
   },
   {
     id: '8',
@@ -144,6 +152,7 @@ export const products: Product[] = [
     description: 'Control y definición con efecto texturizado mate',
     price: 6800,
     stock: 11,
+    hairTypes: ['rizado', 'ondulado', 'corto'],
     isBestseller: true,
   },
   {
@@ -156,6 +165,7 @@ export const products: Product[] = [
     description: 'Reparación molecular del vínculo del cabello',
     price: 18500,
     stock: 7,
+    hairTypes: ['dañado', 'teñido', 'decolorado'],
     badge: 'ICON',
   },
   {
@@ -168,6 +178,7 @@ export const products: Product[] = [
     description: 'Aceite de argán marroquí 100% puro para brillo extremo',
     price: 14200,
     stock: 20,
+    hairTypes: ['seco', 'dañado', 'rizado', 'ondulado'],
   },
   {
     id: '11',
@@ -179,6 +190,7 @@ export const products: Product[] = [
     description: 'Alisado progresivo con keratina activa y argan',
     price: 7600,
     stock: 13,
+    hairTypes: ['rizado', 'ondulado', 'rebelde'],
     isNew: true,
   },
   {
@@ -191,5 +203,6 @@ export const products: Product[] = [
     description: 'Oxidante cremoso para coloraciones perfectas y uniformes',
     price: 4500,
     stock: 38,
+    hairTypes: ['todo tipo', 'teñido'],
   },
 ]

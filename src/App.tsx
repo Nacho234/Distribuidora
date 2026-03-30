@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
@@ -15,41 +16,57 @@ import SpotlightCursor from './components/ui/SpotlightCursor'
 import FloatingCTA from './components/ui/FloatingCTA'
 import CartDrawer from './components/ui/CartDrawer'
 import { CartProvider } from './context/CartContext'
+import ProductsPage from './pages/ProductsPage'
+
+function HomePage({ loaded }: { loaded: boolean }) {
+  return (
+    <AnimatePresence>
+      {loaded && (
+        <motion.div
+          key="site"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="min-h-screen bg-obsidian"
+        >
+          <CustomCursor />
+          <SpotlightCursor />
+          <ScrollProgress />
+          <FloatingCTA />
+          <Navbar />
+          <main>
+            <Hero />
+            <Features />
+            <Brands />
+            <Products />
+            <About />
+            <Contact />
+          </main>
+          <Footer />
+        </motion.div>
+      )}
+    </AnimatePresence>
+  )
+}
 
 export default function App() {
   const [loaded, setLoaded] = useState(false)
 
   return (
     <CartProvider>
-      <PageLoader onComplete={() => setLoaded(true)} />
-
-      <AnimatePresence>
-        {loaded && (
-          <motion.div
-            key="site"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            className="min-h-screen bg-obsidian"
-          >
-            <CustomCursor />
-            <SpotlightCursor />
-            <ScrollProgress />
-            <FloatingCTA />
-            <CartDrawer />
-            <Navbar />
-            <main>
-              <Hero />
-              <Features />
-              <Brands />
-              <Products />
-              <About />
-              <Contact />
-            </main>
-            <Footer />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <CartDrawer />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <PageLoader onComplete={() => setLoaded(true)} />
+              <HomePage loaded={loaded} />
+            </>
+          }
+        />
+        <Route path="/productos" element={<ProductsPage />} />
+      </Routes>
     </CartProvider>
   )
 }
