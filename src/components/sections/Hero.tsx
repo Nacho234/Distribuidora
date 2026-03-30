@@ -223,7 +223,7 @@ export default function Hero() {
         >
           <RippleButton
             onClick={() => document.querySelector('#products')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-gold px-12 py-4 text-obsidian font-mono text-sm tracking-widest uppercase font-bold rounded-xl"
+            className="btn-gold px-12 py-4 text-white font-mono text-sm tracking-widest uppercase font-bold rounded-xl"
           >
             Ver Productos
           </RippleButton>
