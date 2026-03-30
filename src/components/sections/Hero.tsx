@@ -1,8 +1,27 @@
-import { useRef } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 // useTransform kept for blob parallax
 import { ArrowDown, Sparkles } from 'lucide-react'
 import ParticleField from '../ui/ParticleField'
+
+function useCountUp(target: number, duration = 1800, startDelay = 1800) {
+  const [count, setCount] = useState(0)
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const steps = 60
+      const increment = target / steps
+      let step = 0
+      const timer = setInterval(() => {
+        step++
+        setCount(Math.min(Math.round(increment * step), target))
+        if (step >= steps) clearInterval(timer)
+      }, duration / steps)
+      return () => clearInterval(timer)
+    }, startDelay)
+    return () => clearTimeout(timeout)
+  }, [target, duration, startDelay])
+  return count
+}
 
 // Clip-path character reveal
 function SplitReveal({ text, delay = 0, className = '' }: { text: string; delay?: number; className?: string }) {
@@ -227,20 +246,25 @@ export default function Hero() {
           className="flex items-center justify-center gap-10 mt-20 pt-8 border-t border-smoke/40"
         >
           {[
-            { value: '500+', label: 'Salones' },
-            { value: '12', label: 'Años' },
-            { value: '30+', label: 'Marcas' },
-          ].map((stat, i) => (
-            <motion.div
-              key={i}
-              className="text-center"
-              whileHover={{ y: -4 }}
-              transition={{ type: 'spring', stiffness: 400 }}
-            >
-              <div className="font-display text-2xl font-bold text-gold-gradient">{stat.value}</div>
-              <div className="font-mono text-xs tracking-widest uppercase text-platinum/35 mt-1">{stat.label}</div>
-            </motion.div>
-          ))}
+            { target: 500, suffix: '+', label: 'Salones' },
+            { target: 12, suffix: '', label: 'Años' },
+            { target: 30, suffix: '+', label: 'Marcas' },
+          ].map((stat, i) => {
+            const count = useCountUp(stat.target, 1600, 1800 + i * 100)
+            return (
+              <motion.div
+                key={i}
+                className="text-center"
+                whileHover={{ y: -4 }}
+                transition={{ type: 'spring', stiffness: 400 }}
+              >
+                <div className="font-display text-2xl font-bold text-gold-gradient">
+                  {count}{stat.suffix}
+                </div>
+                <div className="font-mono text-xs tracking-widest uppercase text-platinum/35 mt-1">{stat.label}</div>
+              </motion.div>
+            )
+          })}
         </motion.div>
       </div>
 
