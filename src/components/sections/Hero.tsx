@@ -113,24 +113,6 @@ export default function Hero() {
       {/* Particles */}
       <ParticleField />
 
-      {/* Big faded T — parallax */}
-      <motion.div
-        style={{
-          y: blobY1,
-          fontSize: 'clamp(300px, 55vw, 750px)',
-          lineHeight: 1,
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-        }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.025 }}
-        transition={{ duration: 2 }}
-        className="absolute font-display font-black text-gold pointer-events-none select-none"
-      >
-        T
-      </motion.div>
-
       {/* Vertical side text — left */}
       <div className="absolute left-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-4 z-10">
         <div className="w-px h-16 bg-gradient-to-b from-transparent to-gold/40" />
