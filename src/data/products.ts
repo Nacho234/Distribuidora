@@ -6,6 +6,8 @@ export interface Product {
   subcategory: string
   volume: string
   description: string
+  price: number
+  stock: number
   badge?: string
   isNew?: boolean
   isBestseller?: boolean
@@ -56,6 +58,8 @@ export const products: Product[] = [
     subcategory: 'Máscaras',
     volume: '500ml',
     description: 'Reparación profunda con keratina y aceites esenciales',
+    price: 8500,
+    stock: 24,
     badge: 'BESTSELLER',
     isBestseller: true,
   },
@@ -67,6 +71,8 @@ export const products: Product[] = [
     subcategory: 'Serums',
     volume: '100ml',
     description: 'Sérum de acabado con protección térmica hasta 230°C',
+    price: 5200,
+    stock: 18,
     isNew: true,
   },
   {
@@ -77,6 +83,8 @@ export const products: Product[] = [
     subcategory: 'Ampollas',
     volume: '12x10ml',
     description: 'Tratamiento intensivo anticaída con biotina y zinc',
+    price: 12000,
+    stock: 9,
     badge: 'TOP',
   },
   {
@@ -87,6 +95,8 @@ export const products: Product[] = [
     subcategory: 'Coloración',
     volume: '60ml',
     description: 'Coloración permanente con tecnología de triple protección',
+    price: 3800,
+    stock: 42,
     isBestseller: true,
   },
   {
@@ -97,6 +107,8 @@ export const products: Product[] = [
     subcategory: 'Decoloración',
     volume: '500g',
     description: 'Decoloración de hasta 9 tonos con acción anti-rotura',
+    price: 9700,
+    stock: 15,
     badge: 'PRO',
   },
   {
@@ -107,6 +119,8 @@ export const products: Product[] = [
     subcategory: 'Toners',
     volume: '60ml',
     description: 'Neutraliza tonos amarillos y brinda reflejos fríos perfectos',
+    price: 4100,
+    stock: 30,
     isNew: true,
   },
   {
@@ -117,6 +131,8 @@ export const products: Product[] = [
     subcategory: 'Fijadores',
     volume: '400ml',
     description: 'Fijación extrema con acabado natural sin residuos',
+    price: 3200,
+    stock: 55,
   },
   {
     id: '8',
@@ -126,6 +142,8 @@ export const products: Product[] = [
     subcategory: 'Ceras',
     volume: '100ml',
     description: 'Control y definición con efecto texturizado mate',
+    price: 6800,
+    stock: 11,
     isBestseller: true,
   },
   {
@@ -136,6 +154,8 @@ export const products: Product[] = [
     subcategory: 'Bond Repair',
     volume: '100ml',
     description: 'Reparación molecular del vínculo del cabello',
+    price: 18500,
+    stock: 7,
     badge: 'ICON',
   },
   {
@@ -146,6 +166,8 @@ export const products: Product[] = [
     subcategory: 'Aceites',
     volume: '100ml',
     description: 'Aceite de argán marroquí 100% puro para brillo extremo',
+    price: 14200,
+    stock: 20,
   },
   {
     id: '11',
@@ -155,6 +177,8 @@ export const products: Product[] = [
     subcategory: 'Alisadores',
     volume: '200ml',
     description: 'Alisado progresivo con keratina activa y argan',
+    price: 7600,
+    stock: 13,
     isNew: true,
   },
   {
@@ -165,5 +189,7 @@ export const products: Product[] = [
     subcategory: 'Oxidantes',
     volume: '1L',
     description: 'Oxidante cremoso para coloraciones perfectas y uniformes',
+    price: 4500,
+    stock: 38,
   },
 ]

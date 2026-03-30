@@ -1,8 +1,9 @@
 import { useState, useRef } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
-import { ArrowRight, Package, Tag, Beaker } from 'lucide-react'
+import { ArrowRight, Package, Tag, Beaker, ShoppingCart, Check } from 'lucide-react'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import { categories, products } from '../../data/products'
+import { useCart } from '../../context/CartContext'
 
 const categoryIcons = {
   treatments: Beaker,
@@ -101,6 +102,20 @@ function CategoryCard({ category, index }: { category: typeof categories[0]; ind
 }
 
 function ProductCard({ product, index }: { product: typeof products[0]; index: number }) {
+  const { add } = useCart()
+  const [added, setAdded] = useState(false)
+
+  const handleAdd = () => {
+    add(product)
+    setAdded(true)
+    setTimeout(() => setAdded(false), 1500)
+  }
+
+  const stockColor =
+    product.stock > 20 ? 'text-green-400' : product.stock > 8 ? 'text-yellow-400' : 'text-red-400'
+  const stockLabel =
+    product.stock > 20 ? 'Stock disponible' : product.stock > 8 ? `Últimas ${product.stock} unidades` : `Solo ${product.stock} en stock`
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -179,12 +194,31 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
           <h4 className="font-display font-bold text-pearl text-base mt-1 leading-tight">{product.name}</h4>
           <p className="text-platinum/40 text-xs mt-1.5 leading-relaxed">{product.description}</p>
         </div>
+
+        {/* Price + stock */}
+        <div className="flex items-end justify-between mt-1">
+          <div>
+            <p className="font-mono text-[10px] tracking-widest uppercase text-platinum/30 mb-0.5">Precio</p>
+            <p className="font-display font-bold text-gold text-xl">
+              ${product.price.toLocaleString('es-AR')}
+            </p>
+          </div>
+          <div className="text-right">
+            <p className={`font-mono text-[10px] tracking-widest uppercase ${stockColor}`}>{stockLabel}</p>
+          </div>
+        </div>
+
         <motion.button
-          className="mt-auto w-full py-2.5 border border-gold/20 text-gold/70 hover:border-gold hover:text-gold font-mono text-[11px] tracking-widest uppercase transition-all duration-300 hover:bg-gold/5 rounded-xl"
-          whileHover={{ scale: 1.03, boxShadow: '0 0 20px rgba(201,168,76,0.15)' }}
+          onClick={handleAdd}
+          className={`mt-auto w-full py-2.5 font-mono text-[11px] tracking-widest uppercase transition-all duration-300 rounded-xl flex items-center justify-center gap-2 ${
+            added
+              ? 'bg-green-500/20 border border-green-500/40 text-green-400'
+              : 'border border-gold/20 text-gold/70 hover:border-gold hover:text-gold hover:bg-gold/5'
+          }`}
+          whileHover={added ? {} : { scale: 1.03, boxShadow: '0 0 20px rgba(201,168,76,0.15)' }}
           whileTap={{ scale: 0.97 }}
         >
-          Consultar Precio
+          {added ? <><Check size={13} /> Agregado</> : <><ShoppingCart size={13} /> Agregar al pedido</>}
         </motion.button>
       </div>
     </motion.div>

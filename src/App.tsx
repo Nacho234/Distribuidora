@@ -13,12 +13,14 @@ import ScrollProgress from './components/ui/ScrollProgress'
 import PageLoader from './components/ui/PageLoader'
 import SpotlightCursor from './components/ui/SpotlightCursor'
 import FloatingCTA from './components/ui/FloatingCTA'
+import CartDrawer from './components/ui/CartDrawer'
+import { CartProvider } from './context/CartContext'
 
 export default function App() {
   const [loaded, setLoaded] = useState(false)
 
   return (
-    <>
+    <CartProvider>
       <PageLoader onComplete={() => setLoaded(true)} />
 
       <AnimatePresence>
@@ -34,6 +36,7 @@ export default function App() {
             <SpotlightCursor />
             <ScrollProgress />
             <FloatingCTA />
+            <CartDrawer />
             <Navbar />
             <main>
               <Hero />
@@ -47,6 +50,6 @@ export default function App() {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </CartProvider>
   )
 }

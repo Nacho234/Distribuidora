@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ShoppingCart } from 'lucide-react'
+import { useCart } from '../../context/CartContext'
 
 const links = [
   { label: 'Inicio', href: '#hero' },
@@ -13,6 +14,7 @@ const links = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const { count, setOpen: setCartOpen } = useCart()
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60)
@@ -69,18 +71,46 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <motion.button
-            onClick={() => scrollTo('#contact')}
-            className="hidden md:flex items-center gap-2 px-6 py-2.5 border border-gold text-gold text-sm font-mono tracking-widest uppercase hover:bg-gold hover:text-obsidian transition-all duration-300"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7 }}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            Contactar
-          </motion.button>
+          {/* Cart + CTA */}
+          <div className="flex items-center gap-3">
+            {/* Cart icon */}
+            <motion.button
+              onClick={() => setCartOpen(true)}
+              className="relative p-2 text-platinum/60 hover:text-gold transition-colors duration-300"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <ShoppingCart size={21} />
+              <AnimatePresence>
+                {count > 0 && (
+                  <motion.span
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    exit={{ scale: 0 }}
+                    className="absolute -top-1 -right-1 bg-gold text-obsidian text-[10px] font-bold font-mono w-4.5 h-4.5 min-w-[18px] min-h-[18px] rounded-full flex items-center justify-center leading-none px-1"
+                  >
+                    {count}
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </motion.button>
+
+            {/* CTA Button */}
+            <motion.button
+              onClick={() => scrollTo('#contact')}
+              className="hidden md:flex items-center gap-2 px-6 py-2.5 border border-gold text-gold text-sm font-mono tracking-widest uppercase hover:bg-gold hover:text-obsidian transition-all duration-300"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              Contactar
+            </motion.button>
+          </div>
 
           {/* Mobile hamburger */}
           <button
