@@ -33,7 +33,9 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 left-0 right-0 z-[9990] transition-all duration-500 ${
-          scrolled ? 'glass' : 'bg-transparent'
+          scrolled
+            ? 'glass'
+            : 'bg-transparent md:bg-transparent bg-charcoal/95 backdrop-blur-md border-b border-smoke/50 md:border-none'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
