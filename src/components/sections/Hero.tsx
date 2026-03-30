@@ -131,6 +131,30 @@ export default function Hero() {
         T
       </motion.div>
 
+      {/* Vertical side text — left */}
+      <div className="absolute left-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-4 z-10">
+        <div className="w-px h-16 bg-gradient-to-b from-transparent to-gold/40" />
+        <span
+          className="font-mono text-[10px] tracking-[0.5em] uppercase text-gold/40 select-none"
+          style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
+        >
+          Cosmética Capilar
+        </span>
+        <div className="w-px h-16 bg-gradient-to-t from-transparent to-gold/40" />
+      </div>
+
+      {/* Vertical side text — right */}
+      <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-4 z-10">
+        <div className="w-px h-16 bg-gradient-to-b from-transparent to-gold/40" />
+        <span
+          className="font-mono text-[10px] tracking-[0.5em] uppercase text-gold/40 select-none"
+          style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
+        >
+          Est. 2012
+        </span>
+        <div className="w-px h-16 bg-gradient-to-t from-transparent to-gold/40" />
+      </div>
+
       {/* ── Main content ── */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
         {/* Eyebrow */}

@@ -111,11 +111,44 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
       whileHover={{ y: -8, boxShadow: '0 16px 48px rgba(201,168,76,0.15)' }}
     >
       {/* Product image placeholder */}
-      <div className="relative h-44 bg-gradient-to-br from-charcoal to-charcoal-light flex items-center justify-center overflow-hidden group/img">
-        <div className="text-4xl opacity-20 font-display font-bold text-gold transition-all duration-500 group-hover/img:opacity-40 group-hover/img:scale-125">
-          {product.brand.charAt(0)}
+      <div className="relative h-48 flex items-center justify-center overflow-hidden group/img"
+        style={{
+          background: product.category === 'color'
+            ? 'linear-gradient(135deg, #0d0a1a 0%, #1a1033 50%, #0d0a1a 100%)'
+            : product.category === 'styling'
+            ? 'linear-gradient(135deg, #0a1a0e 0%, #0d2614 50%, #0a1a0e 100%)'
+            : 'linear-gradient(135deg, #1a0e05 0%, #2d1a08 50%, #1a0e05 100%)',
+        }}
+      >
+        {/* Geometric pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(201,168,76,1) 1px, transparent 1px), radial-gradient(circle at 80% 50%, rgba(201,168,76,1) 1px, transparent 1px)',
+            backgroundSize: '30px 30px',
+          }}
+        />
+        {/* Diagonal accent line */}
+        <div className="absolute inset-0 overflow-hidden opacity-10">
+          <div className="absolute w-px bg-gold/60 h-[200%] rotate-[30deg]" style={{ left: '30%', top: '-50%' }} />
+          <div className="absolute w-px bg-gold/40 h-[200%] rotate-[30deg]" style={{ left: '60%', top: '-50%' }} />
         </div>
-        <div className="absolute inset-0 bg-gold/0 group-hover:bg-gold/[0.04] transition-colors duration-500" />
+        {/* Brand initial — large, styled */}
+        <div className="relative z-10 text-center">
+          <div
+            className="font-display font-black text-transparent bg-clip-text transition-all duration-500 group-hover/img:scale-110 select-none leading-none"
+            style={{
+              fontSize: '4rem',
+              backgroundImage: 'linear-gradient(135deg, #8B6914 0%, #F5D680 50%, #C9A84C 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            {product.brand.charAt(0)}
+          </div>
+          <div className="font-mono text-[9px] tracking-[0.4em] uppercase text-gold/40 mt-1">{product.brand}</div>
+        </div>
+        {/* Glow on hover */}
+        <div className="absolute inset-0 bg-gold/0 group-hover/img:bg-gold/[0.05] transition-colors duration-500" />
         {/* Badge */}
         {(product.badge || product.isNew || product.isBestseller) && (
           <div className="absolute top-3 left-3">

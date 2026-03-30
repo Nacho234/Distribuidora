@@ -131,17 +131,59 @@ export default function About() {
                 initial={{ opacity: 0, x: 50 }}
                 animate={textInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.9, delay: 0.2 }}
-                className="relative bg-charcoal-light border border-smoke p-10 h-80 flex items-center justify-center rounded-2xl overflow-hidden"
+                className="relative bg-charcoal-light border border-smoke/60 h-80 flex items-center justify-center rounded-2xl overflow-hidden"
               >
-                <div className="text-center">
-                  <div className="font-display font-bold text-gold text-gold-shimmer mb-2" style={{ fontSize: '5rem' }}>T</div>
-                  <div className="font-mono text-xs tracking-[0.5em] uppercase text-platinum/30">EST. 2012</div>
+                {/* Radial grid */}
+                <div className="absolute inset-0 opacity-[0.04]"
+                  style={{
+                    backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(201,168,76,1) 1px, transparent 1px)',
+                    backgroundSize: '28px 28px',
+                  }}
+                />
+                {/* Gradient ring */}
+                <div className="absolute inset-0 rounded-2xl"
+                  style={{
+                    background: 'radial-gradient(ellipse 80% 80% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%)',
+                  }}
+                />
+                {/* Diagonal lines */}
+                <div className="absolute inset-0 overflow-hidden opacity-10 rounded-2xl">
+                  {[20, 40, 60, 80].map(p => (
+                    <div key={p} className="absolute w-px bg-gold h-[200%] rotate-[35deg]" style={{ left: `${p}%`, top: '-50%' }} />
+                  ))}
                 </div>
+
+                {/* Content */}
+                <div className="relative z-10 text-center px-8">
+                  <motion.div
+                    animate={{ opacity: [0.7, 1, 0.7] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                    className="font-display font-black leading-none mb-3 select-none"
+                    style={{
+                      fontSize: 'clamp(4rem, 12vw, 7rem)',
+                      backgroundImage: 'linear-gradient(135deg, #8B6914 0%, #F5D680 40%, #C9A84C 70%, #8B6914 100%)',
+                      backgroundSize: '200% 200%',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      animation: 'shimmerText 4s linear infinite',
+                    }}
+                  >
+                    TONA<br/>LEG
+                  </motion.div>
+                  <div className="font-mono text-[10px] tracking-[0.6em] uppercase text-gold/40">EST. 2012</div>
+                  <div className="flex items-center justify-center gap-2 mt-3">
+                    <div className="w-8 h-px bg-gold/30" />
+                    <div className="w-1 h-1 rounded-full bg-gold/40" />
+                    <div className="w-8 h-px bg-gold/30" />
+                  </div>
+                </div>
+
                 {/* Corner accents */}
-                <div className="absolute top-3 left-3 w-6 h-6 border-t border-l border-gold/40" />
-                <div className="absolute top-3 right-3 w-6 h-6 border-t border-r border-gold/40" />
-                <div className="absolute bottom-3 left-3 w-6 h-6 border-b border-l border-gold/40" />
-                <div className="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-gold/40" />
+                <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-gold/30 rounded-tl-lg" />
+                <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-gold/30 rounded-tr-lg" />
+                <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-gold/30 rounded-bl-lg" />
+                <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-gold/30 rounded-br-lg" />
               </motion.div>
 
               {/* Floating mini cards */}

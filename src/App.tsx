@@ -7,6 +7,7 @@ import Brands from './components/sections/Brands'
 import Products from './components/sections/Products'
 import About from './components/sections/About'
 import Contact from './components/sections/Contact'
+import Features from './components/sections/Features'
 import CustomCursor from './components/ui/CustomCursor'
 import ScrollProgress from './components/ui/ScrollProgress'
 import PageLoader from './components/ui/PageLoader'
@@ -36,6 +37,7 @@ export default function App() {
             <Navbar />
             <main>
               <Hero />
+              <Features />
               <Brands />
               <Products />
               <About />
