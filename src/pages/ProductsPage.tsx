@@ -413,7 +413,7 @@ export default function ProductsPage() {
                     >
                       {/* Image placeholder */}
                       <div
-                        className="relative h-44 flex items-center justify-center overflow-hidden"
+                        className="relative h-32 flex items-center justify-center overflow-hidden"
                         style={{
                           background:
                             product.category === 'color'
@@ -433,7 +433,7 @@ export default function ProductsPage() {
                           <div
                             className="font-display font-black leading-none select-none group-hover:scale-110 transition-transform duration-500"
                             style={{
-                              fontSize: '3.5rem',
+                              fontSize: '2.5rem',
                               backgroundImage: 'linear-gradient(135deg, #8B6914 0%, #F5D680 50%, #C9A84C 100%)',
                               WebkitBackgroundClip: 'text',
                               WebkitTextFillColor: 'transparent',
@@ -463,7 +463,7 @@ export default function ProductsPage() {
                       </div>
 
                       {/* Info */}
-                      <div className="p-4 flex flex-col flex-1 gap-3">
+                      <div className="p-3 flex flex-col flex-1 gap-2">
                         <div>
                           <span className="font-mono text-[10px] tracking-widest uppercase text-gold/60">{product.brand}</span>
                           <h3 className="font-display font-bold text-pearl text-sm mt-0.5 leading-tight">{product.name}</h3>
@@ -483,7 +483,7 @@ export default function ProductsPage() {
                         <div className="flex items-end justify-between">
                           <div>
                             <p className="font-mono text-[9px] tracking-widest uppercase text-platinum/30">Precio</p>
-                            <p className="font-display font-bold text-gold text-lg">${product.price.toLocaleString('es-AR')}</p>
+                            <p className="font-display font-bold text-gold text-base">${product.price.toLocaleString('es-AR')}</p>
                           </div>
                           <div className={`flex items-center gap-1.5 ${stockColor}`}>
                             <div className={`w-1.5 h-1.5 rounded-full ${stockDot} animate-pulse`} />

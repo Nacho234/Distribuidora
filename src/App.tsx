@@ -29,8 +29,6 @@ function HomePage({ loaded }: { loaded: boolean }) {
           transition={{ duration: 0.6 }}
           className="min-h-screen bg-obsidian"
         >
-          <CustomCursor />
-          <SpotlightCursor />
           <ScrollProgress />
           <FloatingCTA />
           <Navbar />
@@ -54,6 +52,8 @@ export default function App() {
 
   return (
     <CartProvider>
+      <CustomCursor />
+      <SpotlightCursor />
       <CartDrawer />
       <Routes>
         <Route
