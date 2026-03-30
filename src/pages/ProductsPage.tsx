@@ -93,7 +93,7 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
       whileHover={{ y: -5, boxShadow: '0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.15)' }}
     >
       {/* Image area */}
-      <div className="relative overflow-hidden" style={{ height: 160, background: colors.bg }}>
+      <div className="relative overflow-hidden" style={{ height: 'clamp(140px, 28vw, 180px)', background: colors.bg }}>
         {/* Subtle grid */}
         <div className="absolute inset-0 opacity-[0.04]" style={{
           backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
