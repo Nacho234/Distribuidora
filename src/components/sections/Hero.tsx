@@ -67,7 +67,7 @@ export default function Hero() {
             src="https://image.slidesdocs.com/responsive-images/background/aesthetic-interplay-of-white-black-and-gold-in-interior-design-rendered-for-perfumery-and-cosmetics-store-powerpoint-background_47bbd19cff__960_540.jpg"
             alt=""
             className="w-full h-full object-cover"
-            style={{ opacity: 0.7, mixBlendMode: 'luminosity' }}
+            style={{ opacity: 0.6, mixBlendMode: 'luminosity' }}
           />
           {/* Gradient overlay to preserve dark edges */}
           <div
