@@ -67,7 +67,11 @@ export default function Hero() {
             src="https://www.shutterstock.com/image-illustration/wide-angle-modern-cosmetic-skincare-260nw-2494538155.jpg"
             alt=""
             className="w-full h-full object-cover"
-            style={{ opacity: 0.6, mixBlendMode: 'luminosity' }}
+            style={{
+                mixBlendMode: 'luminosity',
+                maskImage: 'linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%)',
+                WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%)',
+              }}
           />
           {/* Gradient overlay to preserve dark edges */}
           <div
