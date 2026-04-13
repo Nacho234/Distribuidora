@@ -64,7 +64,7 @@ export default function Hero() {
         {/* Beauty store background image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&q=80&auto=format&fit=crop"
+            src="https://image.slidesdocs.com/responsive-images/background/aesthetic-interplay-of-white-black-and-gold-in-interior-design-rendered-for-perfumery-and-cosmetics-store-powerpoint-background_47bbd19cff__960_540.jpg"
             alt=""
             className="w-full h-full object-cover"
             style={{ opacity: 0.07, mixBlendMode: 'luminosity' }}
