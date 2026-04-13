@@ -57,7 +57,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-obsidian pt-20"
+      className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden bg-obsidian pt-20"
     >
       {/* ── Aurora blobs ── */}
       <motion.div
@@ -157,13 +157,13 @@ export default function Hero() {
       </div>
 
       {/* ── Main content ── */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center">
         {/* Eyebrow */}
         <motion.div
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="flex items-center justify-center gap-3 mb-10"
+          className="flex items-center justify-center gap-3 mb-5 lg:mb-8"
         >
           <motion.span
             initial={{ scaleX: 0 }}
@@ -186,8 +186,8 @@ export default function Hero() {
 
         {/* ── Headline — clip-path word reveal ── */}
         <h1
-          className="font-display font-black leading-[0.92] mb-10 tracking-tight"
-          style={{ fontSize: 'clamp(3.2rem, 9vw, 8rem)', perspective: 800 }}
+          className="font-display font-black leading-[0.92] mb-5 lg:mb-8 tracking-tight"
+          style={{ fontSize: 'clamp(2.2rem, 6.5vw, 7rem)', perspective: 800 }}
         >
           {/* Line 1 */}
           <div className="flex flex-wrap justify-center gap-x-[0.22em] mb-2">
@@ -208,7 +208,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0 }}
-          className="text-platinum/55 text-lg md:text-xl max-w-2xl mx-auto mb-14 leading-relaxed font-light"
+          className="text-platinum/55 text-base md:text-lg max-w-2xl mx-auto mb-8 lg:mb-12 leading-relaxed font-light"
         >
           Distribuimos las marcas más exclusivas de cosmética capilar para{' '}
           <span className="text-platinum font-normal">profesionales y salones de élite</span>{' '}
@@ -224,13 +224,13 @@ export default function Hero() {
         >
           <RippleButton
             onClick={() => document.querySelector('#products')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-gold px-12 py-4 text-white font-mono text-sm tracking-widest uppercase font-bold rounded-xl"
+            className="btn-gold px-8 md:px-12 py-3 md:py-4 text-white font-mono text-sm tracking-widest uppercase font-bold rounded-xl"
           >
             Ver Productos
           </RippleButton>
           <motion.button
             onClick={() => document.querySelector('#brands')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-12 py-4 border border-gold/40 text-gold font-mono text-sm tracking-widest uppercase hover:border-gold hover:bg-gold/5 transition-all duration-300 rounded-xl"
+            className="px-8 md:px-12 py-3 md:py-4 border border-gold/40 text-gold font-mono text-sm tracking-widest uppercase hover:border-gold hover:bg-gold/5 transition-all duration-300 rounded-xl"
             whileHover={{ scale: 1.04, boxShadow: '0 0 24px rgba(201,168,76,0.2)' }}
             whileTap={{ scale: 0.97 }}
           >
@@ -243,7 +243,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.6 }}
-          className="flex items-center justify-center gap-10 mt-20 pt-8 border-t border-smoke/40"
+          className="flex items-center justify-center gap-8 lg:gap-12 mt-10 lg:mt-16 pt-5 lg:pt-7 border-t border-smoke/40"
         >
           {[
             { target: 500, suffix: '+', label: 'Salones' },

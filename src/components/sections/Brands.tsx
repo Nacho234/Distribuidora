@@ -63,7 +63,7 @@ export default function Brands() {
   const { ref: gridRef, isInView: gridInView } = useScrollAnimation({ threshold: 0.05 })
 
   return (
-    <section id="brands" className="py-32 bg-charcoal relative overflow-hidden">
+    <section id="brands" className="py-16 md:py-24 lg:py-32 bg-charcoal relative overflow-hidden">
       {/* Background accent */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gold-gradient opacity-30" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_100%,rgba(201,168,76,0.04),transparent)]" />

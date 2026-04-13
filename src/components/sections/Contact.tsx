@@ -49,7 +49,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-32 bg-obsidian relative overflow-hidden">
+    <section id="contact" className="py-16 md:py-24 lg:py-32 bg-obsidian relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gold-gradient opacity-20" />
 
       {/* Rotating background T */}
@@ -66,7 +66,7 @@ export default function Contact() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
         {/* Title */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <div className="flex items-center justify-center gap-3 mb-4">
             <span className="w-8 h-px bg-gold" />
             <span className="font-mono text-xs tracking-[0.4em] uppercase text-gold">Contacto</span>
@@ -167,7 +167,7 @@ export default function Contact() {
                     : { opacity: rightInView ? 1 : 0, x: rightInView ? 0 : 40 }
                 }
                 transition={{ duration: 0.5 }}
-                className="glass border border-smoke p-8 space-y-5 rounded-2xl"
+                className="glass border border-smoke p-5 sm:p-8 space-y-5 rounded-2xl"
                 initial={{ opacity: 0, x: 40 }}
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">

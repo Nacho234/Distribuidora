@@ -54,7 +54,7 @@ export default function About() {
   const imageY = useTransform(scrollYProgress, [0, 1], ['30px', '-30px'])
 
   return (
-    <section id="about" className="py-32 bg-charcoal relative overflow-hidden">
+    <section id="about" className="py-16 md:py-24 lg:py-32 bg-charcoal relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gold-gradient opacity-20" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_80%_40%,rgba(201,168,76,0.04),transparent)]" />
 
@@ -66,7 +66,7 @@ export default function About() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-12 lg:mb-24">
           {/* Text side */}
           <div ref={textRef}>
             <motion.div

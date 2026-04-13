@@ -72,6 +72,17 @@ body::after {
   100% { background-position: 300% center; }
 }
 
+/* Gold button */
+.btn-gold {
+  background: linear-gradient(135deg, #8B6914 0%, #C9A84C 40%, #F5D680 70%, #C9A84C 100%);
+  background-size: 200% auto;
+  transition: background-position 0.4s ease, box-shadow 0.4s ease;
+}
+.btn-gold:hover {
+  background-position: right center;
+  box-shadow: 0 0 32px rgba(201,168,76,0.35);
+}
+
 /* Gold glow */
 .gold-glow { box-shadow: 0 0 20px rgba(201,168,76,0.25); }
 .gold-glow-strong { box-shadow: 0 0 40px rgba(201,168,76,0.5), 0 0 80px rgba(201,168,76,0.2); }
