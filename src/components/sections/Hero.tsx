@@ -69,8 +69,8 @@ export default function Hero() {
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             opacity: 0.45,
-            maskImage: 'linear-gradient(to right, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.65) 100%)',
-            WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.65) 100%)',
+            maskImage: 'linear-gradient(to right, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.45) 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.45) 100%)',
           }}
         />
 
