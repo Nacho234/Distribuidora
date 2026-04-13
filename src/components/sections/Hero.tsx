@@ -57,80 +57,72 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden bg-obsidian pt-20"
+      className="relative min-h-[100svh] flex flex-col items-center justify-center bg-obsidian pt-20 pb-16"
     >
-      {/* ── Aurora blobs ── */}
-      <motion.div
-        style={{ y: blobY1 }}
-        className="absolute pointer-events-none"
-        aria-hidden
-      >
-        {/* Blob 1 — top left */}
-        <motion.div
-          animate={{ scale: [1, 1.15, 1], rotate: [0, 10, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute"
+      {/* ── Decorative layer (overflow clipped here, NOT on section) ── */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
+        {/* Aurora blobs */}
+        <motion.div style={{ y: blobY1 }} className="absolute inset-0">
+          <motion.div
+            animate={{ scale: [1, 1.15, 1], rotate: [0, 10, 0] }}
+            transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute"
+            style={{
+              width: 700,
+              height: 700,
+              top: -200,
+              left: -200,
+              borderRadius: '60% 40% 55% 45% / 50% 60% 40% 50%',
+              background: 'radial-gradient(ellipse, rgba(201,168,76,0.12) 0%, rgba(139,105,20,0.06) 50%, transparent 75%)',
+              filter: 'blur(60px)',
+            }}
+          />
+          <motion.div
+            animate={{ scale: [1, 1.2, 1], rotate: [0, -15, 0] }}
+            transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut', delay: 3 }}
+            className="absolute"
+            style={{
+              width: 600,
+              height: 600,
+              top: -100,
+              right: -250,
+              borderRadius: '40% 60% 45% 55% / 60% 40% 60% 40%',
+              background: 'radial-gradient(ellipse, rgba(201,168,76,0.08) 0%, transparent 70%)',
+              filter: 'blur(80px)',
+            }}
+          />
+        </motion.div>
+
+        <motion.div style={{ y: blobY2 }} className="absolute inset-0">
+          <motion.div
+            animate={{ scale: [1, 1.1, 1] }}
+            transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 5 }}
+            className="absolute"
+            style={{
+              width: 800,
+              height: 400,
+              bottom: -100,
+              left: '10%',
+              borderRadius: '50%',
+              background: 'radial-gradient(ellipse, rgba(201,168,76,0.05) 0%, transparent 70%)',
+              filter: 'blur(100px)',
+            }}
+          />
+        </motion.div>
+
+        {/* Grid lines */}
+        <div
+          className="absolute inset-0 opacity-[0.025]"
           style={{
-            width: 700,
-            height: 700,
-            top: -200,
-            left: -200,
-            borderRadius: '60% 40% 55% 45% / 50% 60% 40% 50%',
-            background: 'radial-gradient(ellipse, rgba(201,168,76,0.12) 0%, rgba(139,105,20,0.06) 50%, transparent 75%)',
-            filter: 'blur(60px)',
+            backgroundImage:
+              'linear-gradient(rgba(201,168,76,1) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,1) 1px, transparent 1px)',
+            backgroundSize: '80px 80px',
           }}
         />
-        {/* Blob 2 — top right */}
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], rotate: [0, -15, 0] }}
-          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut', delay: 3 }}
-          className="absolute"
-          style={{
-            width: 600,
-            height: 600,
-            top: -100,
-            right: -250,
-            borderRadius: '40% 60% 45% 55% / 60% 40% 60% 40%',
-            background: 'radial-gradient(ellipse, rgba(201,168,76,0.08) 0%, transparent 70%)',
-            filter: 'blur(80px)',
-          }}
-        />
-      </motion.div>
 
-      <motion.div
-        style={{ y: blobY2 }}
-        className="absolute inset-0 pointer-events-none"
-        aria-hidden
-      >
-        {/* Blob 3 — center bottom */}
-        <motion.div
-          animate={{ scale: [1, 1.1, 1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 5 }}
-          className="absolute"
-          style={{
-            width: 800,
-            height: 400,
-            bottom: -100,
-            left: '10%',
-            borderRadius: '50%',
-            background: 'radial-gradient(ellipse, rgba(201,168,76,0.05) 0%, transparent 70%)',
-            filter: 'blur(100px)',
-          }}
-        />
-      </motion.div>
-
-      {/* Grid lines */}
-      <div
-        className="absolute inset-0 opacity-[0.025]"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(201,168,76,1) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,1) 1px, transparent 1px)',
-          backgroundSize: '80px 80px',
-        }}
-      />
-
-      {/* Particles */}
-      <ParticleField />
+        {/* Particles */}
+        <ParticleField />
+      </div>
 
       {/* Vertical side text — left */}
       <div className="absolute left-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-4 z-10">
@@ -163,7 +155,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="flex items-center justify-center gap-3 mb-5 lg:mb-8"
+          className="flex items-center justify-center gap-3 mb-4 lg:mb-6"
         >
           <motion.span
             initial={{ scaleX: 0 }}
@@ -186,8 +178,8 @@ export default function Hero() {
 
         {/* ── Headline — clip-path word reveal ── */}
         <h1
-          className="font-display font-black leading-[0.92] mb-5 lg:mb-8 tracking-tight"
-          style={{ fontSize: 'clamp(2.2rem, 6.5vw, 7rem)', perspective: 800 }}
+          className="font-display font-black leading-[0.92] mb-4 lg:mb-6 tracking-tight"
+          style={{ fontSize: 'clamp(2rem, 5.5vw, 6rem)', perspective: 800 }}
         >
           {/* Line 1 */}
           <div className="flex flex-wrap justify-center gap-x-[0.22em] mb-2">
@@ -208,7 +200,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0 }}
-          className="text-platinum/55 text-base md:text-lg max-w-2xl mx-auto mb-8 lg:mb-12 leading-relaxed font-light"
+          className="text-platinum/55 text-sm md:text-base max-w-2xl mx-auto mb-6 lg:mb-10 leading-relaxed font-light"
         >
           Distribuimos las marcas más exclusivas de cosmética capilar para{' '}
           <span className="text-platinum font-normal">profesionales y salones de élite</span>{' '}
@@ -243,7 +235,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.6 }}
-          className="flex items-center justify-center gap-8 lg:gap-12 mt-10 lg:mt-16 pt-5 lg:pt-7 border-t border-smoke/40"
+          className="flex items-center justify-center gap-8 lg:gap-12 mt-8 lg:mt-12 pt-4 lg:pt-6 border-t border-smoke/40"
         >
           {[
             { target: 500, suffix: '+', label: 'Salones' },
