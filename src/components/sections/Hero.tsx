@@ -61,6 +61,24 @@ export default function Hero() {
     >
       {/* ── Decorative layer (overflow clipped here, NOT on section) ── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
+        {/* Beauty store background image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&q=80&auto=format&fit=crop"
+            alt=""
+            className="w-full h-full object-cover"
+            style={{ opacity: 0.07, mixBlendMode: 'luminosity' }}
+          />
+          {/* Gradient overlay to preserve dark edges */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'radial-gradient(ellipse at center, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.75) 70%, rgba(10,10,10,0.95) 100%)',
+            }}
+          />
+        </div>
+
         {/* Aurora blobs */}
         <motion.div style={{ y: blobY1 }} className="absolute inset-0">
           <motion.div
