@@ -62,7 +62,7 @@ export default function Hero() {
       {/* ── Decorative layer (overflow clipped here, NOT on section) ── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
         {/* Beauty store background image */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 hidden lg:block">
           <img
             src="https://images.unsplash.com/photo-1629732651773-7a8ed9f9ebf4?w=1600&q=85&auto=format&fit=crop"
             alt=""
