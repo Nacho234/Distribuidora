@@ -62,26 +62,17 @@ export default function Hero() {
       {/* ── Decorative layer (overflow clipped here, NOT on section) ── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
         {/* Beauty store background image */}
-        <div className="absolute inset-0 z-0 hidden lg:block">
-          <img
-            src="https://images.unsplash.com/photo-1629732651773-7a8ed9f9ebf4?w=1600&q=85&auto=format&fit=crop"
-            alt=""
-            className="w-full h-full object-cover"
-            style={{
-                mixBlendMode: 'luminosity',
-                maskImage: 'linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%)',
-                WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%)',
-              }}
-          />
-          {/* Gradient overlay to preserve dark edges */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                'radial-gradient(ellipse at center, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.75) 70%, rgba(10,10,10,0.95) 100%)',
-            }}
-          />
-        </div>
+        <div
+          className="absolute inset-0 z-0 hidden lg:block"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1629732651773-7a8ed9f9ebf4?w=1600&q=85&auto=format&fit=crop)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            opacity: 0.45,
+            maskImage: 'linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,1) 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,1) 100%)',
+          }}
+        />
 
         {/* Aurora blobs */}
         <motion.div style={{ y: blobY1 }} className="absolute inset-0">
