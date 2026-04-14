@@ -65,7 +65,7 @@ export default function Hero() {
         <div
           className="absolute inset-0 z-0 hidden lg:block"
           style={{
-            backgroundImage: 'url(https://wwd.com/wp-content/uploads/2021/02/Beauty-Store-Of-The-Future-1.jpg)',
+            backgroundImage: 'url(https://res.cloudinary.com/deyt2fnfa/image/upload/v1776147994/Tienda_de_cosm%C3%A9ticos_de_lujo_uvldu0.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             opacity: 0.45,
