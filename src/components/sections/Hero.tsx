@@ -65,7 +65,7 @@ export default function Hero() {
         <div
           className="absolute inset-0 z-0 hidden lg:block"
           style={{
-            backgroundImage: 'url(https://www.shutterstock.com/image-illustration/wide-angle-modern-cosmetic-skincare-260nw-2494538155.jpg)',
+            backgroundImage: 'url(https://wwd.com/wp-content/uploads/2021/02/Beauty-Store-Of-The-Future-1.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             opacity: 0.45,
