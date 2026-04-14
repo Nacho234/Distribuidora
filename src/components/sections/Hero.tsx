@@ -65,7 +65,7 @@ export default function Hero() {
         <div
           className="absolute inset-0 z-0 hidden lg:block"
           style={{
-            backgroundImage: 'url(https://res.cloudinary.com/deyt2fnfa/image/upload/v1776148680/upscaled_4x_e2k48w.jpg)',
+            backgroundImage: 'url(https://res.cloudinary.com/deyt2fnfa/image/upload/v1776148815/Beauty-Store-Of-The-Future-1_vmo0i6.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             opacity: 0.45,
