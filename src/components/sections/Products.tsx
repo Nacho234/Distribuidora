@@ -326,7 +326,7 @@ export default function Products() {
           </p>
           <motion.button
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-gold px-12 py-4 text-[#1A1A1A] font-mono text-sm tracking-widest uppercase font-bold rounded-xl"
+            className="btn-gold px-12 py-4 text-obsidian font-mono text-sm tracking-widest uppercase font-bold rounded-xl"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >

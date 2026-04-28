@@ -52,7 +52,7 @@ export default function Footer() {
           </div>
           <motion.button
             onClick={() => scrollTo('#contact')}
-            className="flex-shrink-0 px-8 py-3 border border-gold text-gold font-mono text-sm tracking-widest uppercase hover:bg-gold hover:text-[#1A1A1A] transition-all duration-300 rounded-xl font-bold"
+            className="flex-shrink-0 px-8 py-3 border border-gold text-gold font-mono text-sm tracking-widest uppercase hover:bg-gold hover:text-obsidian transition-all duration-300 rounded-xl font-bold"
             whileHover={{ scale: 1.04, boxShadow: '0 0 30px rgba(201,168,76,0.3)' }}
             whileTap={{ scale: 0.97 }}
           >

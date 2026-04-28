@@ -38,7 +38,7 @@ function AddButton({ product }: { product: typeof products[0] }) {
       className={`w-full py-2.5 font-mono text-[11px] tracking-widest uppercase rounded-lg flex items-center justify-center gap-2 transition-all duration-300 ${
         added
           ? 'bg-green-500/15 border border-green-500/30 text-green-400'
-          : 'bg-transparent border border-gold/25 text-gold/70 hover:border-gold hover:bg-gold hover:text-[#1A1A1A]'
+          : 'bg-transparent border border-gold/25 text-gold/70 hover:border-gold hover:bg-gold hover:text-obsidian'
       }`}
       whileHover={added ? {} : { scale: 1.02 }}
       whileTap={{ scale: 0.97 }}
@@ -53,7 +53,7 @@ function AddButton({ product }: { product: typeof products[0] }) {
 function FilterSection({ title, children, defaultOpen = true }: { title: string; children: React.ReactNode; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(defaultOpen)
   return (
-    <div className="pb-5 mb-5 border-b border-gray-200">
+    <div className="pb-5 mb-5 border-b border-white/[0.06]">
       <button onClick={() => setOpen(!open)} className="flex items-center justify-between w-full mb-4">
         <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-gold/70">{title}</span>
         {open ? <ChevronUp size={13} className="text-platinum/30" /> : <ChevronDown size={13} className="text-platinum/30" />}
@@ -88,9 +88,9 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.97 }}
       transition={{ duration: 0.3, delay: (index % 12) * 0.03 }}
-      className="group relative rounded-2xl overflow-hidden border border-gray-200 hover:border-gold/30 transition-all duration-500 flex flex-col"
-      style={{ background: 'linear-gradient(180deg, #FFFFFF 0%, #F5F5F5 100%)' }}
-      whileHover={{ y: -5, boxShadow: '0 20px 60px rgba(0,0,0,0.08), 0 0 0 1px rgba(201,168,76,0.2)' }}
+      className="group relative rounded-2xl overflow-hidden border border-white/[0.07] hover:border-gold/30 transition-all duration-500 flex flex-col"
+      style={{ background: 'linear-gradient(180deg, #222222 0%, #1c1c1c 100%)' }}
+      whileHover={{ y: -5, boxShadow: '0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.15)' }}
     >
       {/* Image area */}
       <div className="relative overflow-hidden" style={{ height: 'clamp(200px, 28vw, 180px)', background: colors.bg }}>
@@ -124,7 +124,7 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
           >
             {product.brand.charAt(0)}
           </span>
-          <span className="font-mono text-[8px] tracking-[0.5em] uppercase text-white/40">{product.brand}</span>
+          <span className="font-mono text-[8px] tracking-[0.5em] uppercase text-white/20">{product.brand}</span>
         </div>
 
         {/* Top-left badge */}
@@ -145,12 +145,12 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
         )}
 
         {/* Volume — bottom right */}
-        <span className="absolute bottom-3 right-3 z-20 font-mono text-[9px] text-white/50 border border-white/20 px-2 py-0.5 rounded-md bg-black/25 backdrop-blur-sm">
+        <span className="absolute bottom-3 right-3 z-20 font-mono text-[9px] text-white/25 border border-white/10 px-2 py-0.5 rounded-md bg-black/20 backdrop-blur-sm">
           {product.volume}
         </span>
 
         {/* Bottom fade into card */}
-        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#F5F5F5] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#1c1c1c] to-transparent" />
       </div>
 
       {/* Content */}
@@ -165,14 +165,14 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
         {/* Hair type chips */}
         <div className="flex flex-wrap gap-1">
           {product.hairTypes.slice(0, 3).map(h => (
-            <span key={h} className="font-mono text-[9px] tracking-wider uppercase px-2 py-0.5 rounded-full bg-gray-100 border border-gray-200 text-platinum/60">
+            <span key={h} className="font-mono text-[9px] tracking-wider uppercase px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.07] text-platinum/35">
               {h}
             </span>
           ))}
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-gray-200" />
+        <div className="h-px bg-white/[0.06]" />
 
         {/* Price + stock */}
         <div className="flex items-center justify-between">
@@ -247,7 +247,7 @@ export default function ProductsPage() {
               className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-left transition-all duration-200 ${
                 selectedCategories.includes(cat.id)
                   ? 'bg-gold/10 border border-gold/30 text-pearl'
-                  : 'border border-transparent hover:border-gray-300 text-platinum/70 hover:text-pearl'
+                  : 'border border-transparent hover:border-white/10 text-platinum/50 hover:text-platinum'
               }`}
             >
               <span className="text-sm">{cat.name}</span>
@@ -266,7 +266,7 @@ export default function ProductsPage() {
               className={`px-2.5 py-1 rounded-lg font-mono text-[9px] tracking-wider uppercase border transition-all duration-200 ${
                 selectedHairTypes.includes(type)
                   ? 'bg-gold/15 border-gold/40 text-gold font-bold'
-                  : 'border-gray-200 text-platinum/60 hover:border-gray-400 hover:text-platinum'
+                  : 'border-white/[0.08] text-platinum/40 hover:border-white/20 hover:text-platinum/70'
               }`}
             >
               {type}
@@ -284,7 +284,7 @@ export default function ProductsPage() {
               className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-left transition-all duration-200 ${
                 selectedBrands.includes(brand)
                   ? 'bg-gold/10 border border-gold/30 text-pearl'
-                  : 'border border-transparent hover:border-gray-300 text-platinum/70 hover:text-pearl'
+                  : 'border border-transparent hover:border-white/10 text-platinum/50 hover:text-platinum'
               }`}
             >
               <span className="text-sm">{brand}</span>
@@ -312,7 +312,7 @@ export default function ProductsPage() {
       {activeFilters > 0 && (
         <button
           onClick={clearAll}
-          className="w-full py-2.5 border border-gray-200 text-platinum/60 hover:text-red-400 hover:border-red-500/30 font-mono text-[10px] tracking-widest uppercase rounded-xl transition-all"
+          className="w-full py-2.5 border border-white/10 text-platinum/40 hover:text-red-400 hover:border-red-500/20 font-mono text-[10px] tracking-widest uppercase rounded-xl transition-all"
         >
           Limpiar todos los filtros
         </button>
@@ -321,10 +321,10 @@ export default function ProductsPage() {
   )
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8]">
+    <div className="min-h-screen bg-[#1a1a1a]">
       {/* Navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-gray-200"
-        style={{ background: 'rgba(248,248,248,0.95)', backdropFilter: 'blur(20px)' }}>
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.07]"
+        style={{ background: 'rgba(26,26,26,0.92)', backdropFilter: 'blur(20px)' }}>
         <div className="max-w-screen-2xl mx-auto px-4 md:px-8 h-16 flex items-center gap-4">
           {/* Back */}
           <button
@@ -335,7 +335,7 @@ export default function ProductsPage() {
             <span className="hidden sm:inline font-mono text-[10px] tracking-widest uppercase">Inicio</span>
           </button>
 
-          <div className="w-px h-4 bg-gray-300 flex-shrink-0" />
+          <div className="w-px h-4 bg-white/10 flex-shrink-0" />
 
           <span className="font-display font-bold text-pearl text-base flex-shrink-0 tracking-wider">
             TONA<span className="text-gold">LEG</span>
@@ -353,8 +353,8 @@ export default function ProductsPage() {
               placeholder="Buscar producto o marca..."
               value={search}
               onChange={e => setSearch(e.target.value)}
-              className="w-full h-9 rounded-xl pl-9 pr-8 text-xs text-pearl placeholder-platinum/40 focus:outline-none font-mono border border-gray-200 focus:border-gold/30 transition-colors"
-              style={{ background: 'rgba(0,0,0,0.04)' }}
+              className="w-full h-9 rounded-xl pl-9 pr-8 text-xs text-pearl placeholder-platinum/25 focus:outline-none font-mono border border-white/[0.08] focus:border-gold/30 transition-colors"
+              style={{ background: 'rgba(255,255,255,0.04)' }}
             />
             {search && (
               <button onClick={() => setSearch('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-platinum/25 hover:text-gold transition-colors">
@@ -370,7 +370,7 @@ export default function ProductsPage() {
           >
             <SlidersHorizontal size={18} />
             {activeFilters > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-gold rounded-full text-[#1A1A1A] text-[9px] font-bold flex items-center justify-center">
+              <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-gold rounded-full text-obsidian text-[9px] font-bold flex items-center justify-center">
                 {activeFilters}
               </span>
             )}
@@ -388,7 +388,7 @@ export default function ProductsPage() {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   exit={{ scale: 0 }}
-                  className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-gold rounded-full text-[#1A1A1A] text-[9px] font-bold flex items-center justify-center"
+                  className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-gold rounded-full text-obsidian text-[9px] font-bold flex items-center justify-center"
                 >
                   {count}
                 </motion.span>
@@ -426,8 +426,8 @@ export default function ProductsPage() {
               <motion.div
                 initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }}
                 transition={{ type: 'spring', stiffness: 300, damping: 35 }}
-                className="fixed top-0 left-0 h-full w-72 z-50 p-6 overflow-y-auto md:hidden border-r border-gray-200"
-                style={{ background: '#F8F8F8' }}
+                className="fixed top-0 left-0 h-full w-72 z-50 p-6 overflow-y-auto md:hidden border-r border-white/[0.07]"
+                style={{ background: '#1a1a1a' }}
               >
                 <div className="flex items-center justify-between mb-6">
                   <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-platinum/50">Filtros</span>
@@ -458,11 +458,11 @@ export default function ProductsPage() {
               <select
                 value={sort}
                 onChange={e => setSort(e.target.value)}
-                className="h-9 rounded-xl px-3 pr-8 font-mono text-[10px] tracking-wider text-platinum/70 focus:outline-none appearance-none cursor-pointer border border-gray-200 focus:border-gold/30 transition-colors"
-                style={{ background: 'rgba(0,0,0,0.04)' }}
+                className="h-9 rounded-xl px-3 pr-8 font-mono text-[10px] tracking-wider text-platinum/50 focus:outline-none appearance-none cursor-pointer border border-white/[0.08] focus:border-gold/30 transition-colors"
+                style={{ background: 'rgba(255,255,255,0.04)' }}
               >
                 {SORT_OPTIONS.map(o => (
-                  <option key={o.value} value={o.value} style={{ background: '#F5F5F5' }}>{o.label}</option>
+                  <option key={o.value} value={o.value} style={{ background: '#1a1a1a' }}>{o.label}</option>
                 ))}
               </select>
               <ChevronDown size={11} className="absolute right-3 top-1/2 -translate-y-1/2 text-platinum/30 pointer-events-none" />
@@ -496,7 +496,7 @@ export default function ProductsPage() {
           {/* Grid */}
           {filtered.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-40 gap-4">
-              <Search size={40} className="text-gray-300" />
+              <Search size={40} className="text-white/10" />
               <p className="font-mono text-[11px] tracking-widest uppercase text-platinum/25">Sin resultados</p>
               <button onClick={clearAll} className="font-mono text-[10px] tracking-widest uppercase text-gold/60 hover:text-gold border-b border-gold/20 hover:border-gold pb-0.5 transition-all">
                 Limpiar filtros

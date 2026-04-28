@@ -68,7 +68,7 @@ export default function Hero() {
             backgroundImage: 'url(https://res.cloudinary.com/deyt2fnfa/image/upload/v1776148680/upscaled_4x_e2k48w.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            opacity: 0.25,
+            opacity: 0.45,
             maskImage: 'linear-gradient(to right, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.45) 100%)',
             WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.45) 100%)',
           }}

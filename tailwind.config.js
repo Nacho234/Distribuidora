@@ -9,14 +9,14 @@ export default {
           DEFAULT: '#C9A84C',
           dark: '#8B6914',
         },
-        obsidian: '#FFFFFF',
+        obsidian: '#1A1A1A',
         charcoal: {
-          light: '#F8F8F8',
-          DEFAULT: '#F0F0F0',
+          light: '#252525',
+          DEFAULT: '#1F1F1F',
         },
-        smoke: '#D0D0D0',
-        platinum: '#555555',
-        pearl: '#1A1A1A',
+        smoke: '#383838',
+        platinum: '#E8E8E8',
+        pearl: '#F5F5F5',
       },
       fontFamily: {
         display: ['"Playfair Display"', 'serif'],
@@ -26,7 +26,7 @@ export default {
       backgroundImage: {
         'gold-gradient': 'linear-gradient(135deg, #C9A84C 0%, #F5D680 50%, #8B6914 100%)',
         'gold-gradient-h': 'linear-gradient(90deg, #8B6914 0%, #C9A84C 50%, #F5D680 100%)',
-        'dark-gradient': 'linear-gradient(180deg, #FFFFFF 0%, #F0F0F0 100%)',
+        'dark-gradient': 'linear-gradient(180deg, #1A1A1A 0%, #1F1F1F 100%)',
       },
       animation: {
         marquee: 'marquee 35s linear infinite',
