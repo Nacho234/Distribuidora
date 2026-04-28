@@ -83,7 +83,7 @@ export default function Brands() {
         <div className="marquee-track">
           {marqueeLogos.map((logo, i) => (
             <span key={i} className="inline-flex items-center gap-8 mx-10">
-              <span className="font-display font-bold text-2xl md:text-3xl text-platinum/15 hover:text-gold/70 transition-all duration-500 whitespace-nowrap tracking-[0.2em]">
+              <span className="font-display font-bold text-2xl md:text-3xl text-platinum/30 hover:text-gold/70 transition-all duration-500 whitespace-nowrap tracking-[0.2em]">
                 {logo}
               </span>
               <span className="text-gold/20 text-lg">◆</span>

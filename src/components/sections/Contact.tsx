@@ -179,7 +179,7 @@ export default function Contact() {
                       type="text"
                       value={form.nombre}
                       onChange={(e) => { setForm({ ...form, nombre: e.target.value }); setErrors({ ...errors, nombre: false }) }}
-                      className={`w-full bg-charcoal border px-4 py-3 text-pearl text-sm outline-none focus:border-gold transition-colors duration-300 placeholder:text-platinum/20 rounded-xl ${errors.nombre ? 'border-red-500' : 'border-smoke'}`}
+                      className={`w-full bg-charcoal border px-4 py-3 text-pearl text-sm outline-none focus:border-gold transition-colors duration-300 placeholder:text-platinum/40 rounded-xl ${errors.nombre ? 'border-red-500' : 'border-smoke'}`}
                       placeholder="Tu nombre"
                     />
                   </div>
@@ -191,7 +191,7 @@ export default function Contact() {
                       type="email"
                       value={form.email}
                       onChange={(e) => { setForm({ ...form, email: e.target.value }); setErrors({ ...errors, email: false }) }}
-                      className={`w-full bg-charcoal border px-4 py-3 text-pearl text-sm outline-none focus:border-gold transition-colors duration-300 placeholder:text-platinum/20 rounded-xl ${errors.email ? 'border-red-500' : 'border-smoke'}`}
+                      className={`w-full bg-charcoal border px-4 py-3 text-pearl text-sm outline-none focus:border-gold transition-colors duration-300 placeholder:text-platinum/40 rounded-xl ${errors.email ? 'border-red-500' : 'border-smoke'}`}
                       placeholder="email@empresa.com"
                     />
                   </div>
@@ -206,7 +206,7 @@ export default function Contact() {
                       type="tel"
                       value={form.telefono}
                       onChange={(e) => setForm({ ...form, telefono: e.target.value })}
-                      className="w-full bg-charcoal border border-smoke px-4 py-3 text-pearl text-sm outline-none focus:border-gold transition-colors duration-300 placeholder:text-platinum/20 rounded-xl"
+                      className="w-full bg-charcoal border border-smoke px-4 py-3 text-pearl text-sm outline-none focus:border-gold transition-colors duration-300 placeholder:text-platinum/40 rounded-xl"
                       placeholder="+54 11 0000-0000"
                     />
                   </div>
@@ -235,14 +235,14 @@ export default function Contact() {
                     value={form.mensaje}
                     onChange={(e) => { setForm({ ...form, mensaje: e.target.value }); setErrors({ ...errors, mensaje: false }) }}
                     rows={5}
-                    className={`w-full bg-charcoal border px-4 py-3 text-pearl text-sm outline-none focus:border-gold transition-colors duration-300 placeholder:text-platinum/20 rounded-xl resize-none ${errors.mensaje ? 'border-red-500' : 'border-smoke'}`}
+                    className={`w-full bg-charcoal border px-4 py-3 text-pearl text-sm outline-none focus:border-gold transition-colors duration-300 placeholder:text-platinum/40 rounded-xl resize-none ${errors.mensaje ? 'border-red-500' : 'border-smoke'}`}
                     placeholder="¿En qué podemos ayudarte?"
                   />
                 </div>
 
                 <motion.button
                   type="submit"
-                  className="btn-gold w-full py-4 text-obsidian font-mono text-sm tracking-widest uppercase font-bold flex items-center justify-center gap-3 rounded-xl"
+                  className="btn-gold w-full py-4 text-[#1A1A1A] font-mono text-sm tracking-widest uppercase font-bold flex items-center justify-center gap-3 rounded-xl"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >

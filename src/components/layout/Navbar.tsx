@@ -101,7 +101,7 @@ export default function Navbar() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     exit={{ scale: 0 }}
-                    className="absolute -top-1 -right-1 bg-gold text-obsidian text-[10px] font-bold font-mono w-4.5 h-4.5 min-w-[18px] min-h-[18px] rounded-full flex items-center justify-center leading-none px-1"
+                    className="absolute -top-1 -right-1 bg-gold text-[#1A1A1A] text-[10px] font-bold font-mono w-4.5 h-4.5 min-w-[18px] min-h-[18px] rounded-full flex items-center justify-center leading-none px-1"
                   >
                     {count}
                   </motion.span>
@@ -112,7 +112,7 @@ export default function Navbar() {
             {/* CTA Button */}
             <motion.button
               onClick={() => scrollTo('#contact')}
-              className="hidden md:flex items-center gap-2 px-6 py-2.5 border border-gold text-gold text-sm font-mono tracking-widest uppercase hover:bg-gold hover:text-obsidian transition-all duration-300"
+              className="hidden md:flex items-center gap-2 px-6 py-2.5 border border-gold text-gold text-sm font-mono tracking-widest uppercase hover:bg-gold hover:text-[#1A1A1A] transition-all duration-300"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
@@ -170,7 +170,7 @@ export default function Navbar() {
             </motion.button>
             <motion.button
               onClick={() => scrollTo('#contact')}
-              className="mt-4 px-10 py-3 bg-gold text-obsidian font-mono tracking-widest uppercase text-sm font-bold"
+              className="mt-4 px-10 py-3 bg-gold text-[#1A1A1A] font-mono tracking-widest uppercase text-sm font-bold"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}

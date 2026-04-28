@@ -6,10 +6,10 @@
   --gold: #C9A84C;
   --gold-light: #F5D680;
   --gold-dark: #8B6914;
-  --obsidian: #0A0A0A;
-  --charcoal: #111111;
-  --charcoal-light: #1A1A1A;
-  --smoke: #2A2A2A;
+  --obsidian: #FFFFFF;
+  --charcoal: #F0F0F0;
+  --charcoal-light: #F8F8F8;
+  --smoke: #D0D0D0;
 }
 
 * {
@@ -24,7 +24,7 @@ html {
 body {
   margin: 0;
   background-color: var(--obsidian);
-  color: #E8E8E8;
+  color: #1A1A1A;
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
 }
@@ -89,10 +89,10 @@ body::after {
 
 /* Glass */
 .glass {
-  background: rgba(17,17,17,0.8);
+  background: rgba(255,255,255,0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(201,168,76,0.15);
+  border: 1px solid rgba(201,168,76,0.2);
   border-radius: 16px;
 }
 
@@ -176,5 +176,5 @@ body::after {
   box-shadow:
     0 0 0 1px rgba(201,168,76,0.08),
     0 8px 40px rgba(201,168,76,0.12),
-    0 2px 12px rgba(0,0,0,0.4);
+    0 2px 12px rgba(0,0,0,0.08);
 }

@@ -23,7 +23,7 @@ export default function CartDrawer() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setOpen(false)}
-            className="fixed inset-0 bg-obsidian/70 backdrop-blur-sm z-[9994]"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9994]"
           />
         )}
       </AnimatePresence>
@@ -44,7 +44,7 @@ export default function CartDrawer() {
                 <ShoppingBag size={20} className="text-gold" />
                 <span className="font-display font-bold text-pearl text-lg">Mi Pedido</span>
                 {count > 0 && (
-                  <span className="bg-gold text-obsidian text-xs font-bold font-mono px-2 py-0.5 rounded-full">
+                  <span className="bg-gold text-[#1A1A1A] text-xs font-bold font-mono px-2 py-0.5 rounded-full">
                     {count}
                   </span>
                 )}

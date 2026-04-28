@@ -30,7 +30,7 @@ export const categories: Category[] = [
     description: 'Máscaras, serums, aceites y ampollas para restaurar y fortalecer el cabello desde las raíces.',
     icon: '✦',
     count: 87,
-    gradient: 'from-[#1a0e05] to-[#2d1a08]',
+    gradient: 'from-[#fff8f0] to-[#fef0dc]',
   },
   {
     id: 'color',
@@ -38,7 +38,7 @@ export const categories: Category[] = [
     description: 'Coloración, decoloración, oxidantes y toners para resultados perfectos y duraderos.',
     icon: '◈',
     count: 124,
-    gradient: 'from-[#0d0a1a] to-[#1a1033]',
+    gradient: 'from-[#f4f0ff] to-[#ebe5ff]',
   },
   {
     id: 'styling',
@@ -46,7 +46,7 @@ export const categories: Category[] = [
     description: 'Lacas, ceras, cremas y productos de acabado para crear looks únicos y profesionales.',
     icon: '❋',
     count: 63,
-    gradient: 'from-[#0a1a0e] to-[#0d2614]',
+    gradient: 'from-[#f0fff4] to-[#e5f5e8]',
   },
 ]
 
