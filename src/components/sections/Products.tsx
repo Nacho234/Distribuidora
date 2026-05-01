@@ -119,7 +119,7 @@ export default function Products() {
     : products
 
   return (
-    <section id="products" className="py-20 bg-obsidian relative overflow-hidden">
+    <section id="products" className="py-20 relative overflow-hidden" style={{ backgroundColor: '#F4F3F0' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Title */}
         <div ref={titleRef} className="mb-10">
@@ -129,12 +129,12 @@ export default function Products() {
             transition={{ duration: 0.5 }}
           >
             <h2
-              className="font-display font-bold text-pearl leading-none"
+              className="font-display font-bold text-obsidian leading-none"
               style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
             >
               Catálogo de Productos
             </h2>
-            <p className="text-platinum/50 mt-2 text-base">
+            <p className="text-obsidian/50 mt-2 text-base">
               Todo lo que necesitás para tu salón en un solo lugar
             </p>
           </motion.div>
@@ -151,7 +151,7 @@ export default function Products() {
               className={`px-4 py-2 rounded-full text-sm font-semibold tracking-wide transition-all duration-200 ${
                 !activeCategory
                   ? 'bg-gold text-obsidian'
-                  : 'border border-smoke text-platinum/60 hover:border-gold/50 hover:text-platinum'
+                  : 'border border-obsidian/20 text-obsidian/60 hover:border-gold hover:text-obsidian'
               }`}
             >
               Todos ({products.length})
@@ -163,7 +163,7 @@ export default function Products() {
                 className={`px-4 py-2 rounded-full text-sm font-semibold tracking-wide transition-all duration-200 ${
                   activeCategory === cat.id
                     ? 'bg-gold text-obsidian'
-                    : 'border border-smoke text-platinum/60 hover:border-gold/50 hover:text-platinum'
+                    : 'border border-obsidian/20 text-obsidian/60 hover:border-gold hover:text-obsidian'
                 }`}
               >
                 {cat.name} ({cat.count})
@@ -184,9 +184,9 @@ export default function Products() {
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center py-12 border-t border-smoke mt-10"
+          className="text-center py-12 border-t border-obsidian/10 mt-10"
         >
-          <p className="text-platinum/40 mb-5 text-sm">
+          <p className="text-obsidian/40 mb-5 text-sm">
             ¿No encontrás lo que buscás? Tenemos más de 300 productos disponibles.
           </p>
           <motion.button
