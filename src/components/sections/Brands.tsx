@@ -12,48 +12,36 @@ function SectionTitle({ eyebrow, title, subtitle, align = 'center' }: {
   const { ref, isInView } = useScrollAnimation()
 
   return (
-    <div ref={ref} className={`mb-16 ${align === 'center' ? 'text-center' : 'text-left'}`}>
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
+    <div ref={ref} className={`mb-12 ${align === 'center' ? 'text-center' : 'text-left'}`}>
+      <motion.p
+        initial={{ opacity: 0, y: -8 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.5 }}
-        className={`flex items-center gap-3 mb-4 ${align === 'center' ? 'justify-center' : ''}`}
+        transition={{ duration: 0.4 }}
+        className={`text-xs tracking-[0.35em] uppercase text-gold font-semibold mb-3 ${align === 'center' ? 'text-center' : ''}`}
       >
-        <span className="w-8 h-px bg-gold" />
-        <span className="font-mono text-xs tracking-[0.4em] uppercase text-gold">{eyebrow}</span>
-        <span className="w-8 h-px bg-gold" />
-      </motion.div>
+        {eyebrow}
+      </motion.p>
 
-      <div className="overflow-hidden">
-        <motion.h2
-          initial={{ y: '110%', opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display font-bold text-pearl leading-none"
-          style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)' }}
-        >
-          {title}
-        </motion.h2>
-      </div>
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+        className="font-display font-bold text-pearl leading-tight"
+        style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)' }}
+      >
+        {title}
+      </motion.h2>
 
       {subtitle && (
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className={`text-platinum/50 mt-4 text-lg max-w-xl ${align === 'center' ? 'mx-auto' : ''}`}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className={`text-platinum/50 mt-3 text-base max-w-xl ${align === 'center' ? 'mx-auto' : ''}`}
         >
           {subtitle}
         </motion.p>
       )}
-
-      {/* Gold rule */}
-      <motion.div
-        className={`h-px bg-gold-gradient mt-6 ${align === 'center' ? 'mx-auto' : ''}`}
-        initial={{ width: 0 }}
-        animate={isInView ? { width: align === 'center' ? '80px' : '60px' } : {}}
-        transition={{ duration: 1, delay: 0.3 }}
-      />
     </div>
   )
 }

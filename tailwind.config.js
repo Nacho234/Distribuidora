@@ -21,7 +21,7 @@ export default {
       fontFamily: {
         display: ['"Playfair Display"', 'serif'],
         sans: ['"Inter"', 'sans-serif'],
-        mono: ['"Space Mono"', 'monospace'],
+        mono: ['"Inter"', 'sans-serif'],
       },
       backgroundImage: {
         'gold-gradient': 'linear-gradient(135deg, #C9A84C 0%, #F5D680 50%, #8B6914 100%)',

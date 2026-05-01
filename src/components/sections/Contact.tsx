@@ -52,32 +52,24 @@ export default function Contact() {
     <section id="contact" className="py-16 md:py-24 lg:py-32 bg-obsidian relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gold-gradient opacity-20" />
 
-      {/* Rotating background T */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-        <motion.span
-          animate={{ rotate: 360 }}
-          transition={{ repeat: Infinity, duration: 80, ease: 'linear' }}
-          className="font-display font-black text-gold/[0.025] select-none"
-          style={{ fontSize: 'clamp(300px, 50vw, 800px)' }}
-        >
-          T
-        </motion.span>
-      </div>
-
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
         {/* Title */}
-        <div className="text-center mb-10 md:mb-16">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="w-8 h-px bg-gold" />
-            <span className="font-mono text-xs tracking-[0.4em] uppercase text-gold">Contacto</span>
-            <span className="w-8 h-px bg-gold" />
-          </div>
+        <div className="mb-10 md:mb-14">
+          <motion.p
+            initial={{ opacity: 0, y: -8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-xs tracking-[0.35em] uppercase text-gold font-semibold mb-3"
+          >
+            Contacto
+          </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
             className="font-display font-bold text-pearl"
-            style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)' }}
+            style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}
           >
             Hablemos de Negocios
           </motion.h2>
@@ -85,8 +77,8 @@ export default function Contact() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-platinum/50 mt-4 text-lg"
+            transition={{ delay: 0.15 }}
+            className="text-platinum/50 mt-3 text-base"
           >
             Estamos listos para potenciar tu salón con los mejores productos
           </motion.p>
