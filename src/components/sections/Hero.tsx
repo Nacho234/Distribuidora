@@ -32,7 +32,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-[75vh] flex flex-col items-center justify-center bg-obsidian pt-20 pb-16"
+      className="relative min-h-[100svh] flex flex-col items-center justify-center bg-obsidian pt-20 pb-16"
     >
       {/* Background image */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
