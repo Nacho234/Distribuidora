@@ -16,94 +16,76 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
   }
 
   const stockColor =
-    product.stock > 20 ? 'text-green-400' : product.stock > 8 ? 'text-yellow-400' : 'text-red-400'
+    product.stock > 20 ? 'text-emerald-600' : product.stock > 8 ? 'text-amber-600' : 'text-red-500'
   const stockLabel =
-    product.stock > 20 ? 'Disponible' : product.stock > 8 ? `Últimas ${product.stock}` : `Solo ${product.stock}`
+    product.stock > 20 ? 'En stock' : product.stock > 8 ? `Últimas ${product.stock}` : `Solo ${product.stock}`
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.45, delay: (index % 4) * 0.06 }}
-      className="card-gold-border bg-charcoal-light flex flex-col rounded-2xl overflow-hidden"
-      whileHover={{ y: -5, boxShadow: '0 12px 40px rgba(201,168,76,0.13)' }}
+      transition={{ duration: 0.4, delay: (index % 4) * 0.05 }}
+      className="bg-white flex flex-col rounded-xl overflow-hidden"
+      style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06)' }}
+      whileHover={{ y: -4, boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}
     >
-      {/* Product image placeholder */}
-      <div
-        className="relative h-44 flex items-center justify-center"
-        style={{
-          background: product.category === 'color'
-            ? 'linear-gradient(135deg, #0d0a1a 0%, #1a1033 100%)'
-            : product.category === 'styling'
-            ? 'linear-gradient(135deg, #0a1a0e 0%, #0d2614 100%)'
-            : 'linear-gradient(135deg, #1a0e05 0%, #2d1a08 100%)',
-        }}
-      >
-        <div className="relative z-10 text-center">
-          <div
-            className="font-display font-black text-transparent bg-clip-text select-none leading-none"
-            style={{
-              fontSize: '3.5rem',
-              backgroundImage: 'linear-gradient(135deg, #8B6914 0%, #F5D680 50%, #C9A84C 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}
-          >
-            {product.brand.charAt(0)}
-          </div>
-          <div className="text-[9px] tracking-[0.4em] uppercase text-gold/40 mt-1 font-medium">{product.brand}</div>
-        </div>
-        {(product.badge || product.isNew || product.isBestseller) && (
+      {/* Image area */}
+      <div className="relative h-44 flex flex-col items-center justify-center bg-[#F7F6F4]">
+        {/* Brand initial */}
+        <span className="font-display font-bold text-5xl text-obsidian/10 select-none leading-none">
+          {product.brand.charAt(0)}
+        </span>
+        <span className="text-[10px] tracking-[0.3em] uppercase text-obsidian/25 font-medium mt-2">
+          {product.brand}
+        </span>
+
+        {/* Badge */}
+        {(product.isNew || product.badge || product.isBestseller) && (
           <div className="absolute top-3 left-3">
-            <span className={`text-[10px] tracking-widest uppercase px-2 py-1 font-semibold rounded ${
+            <span className={`text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded-full ${
               product.isNew
-                ? 'bg-green-500/10 text-green-400 border border-green-500/20'
+                ? 'bg-emerald-50 text-emerald-700'
                 : product.badge === 'ICON'
-                ? 'bg-gold/10 text-gold border border-gold/20'
-                : product.isBestseller
-                ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
-                : 'bg-red-500/10 text-red-400 border border-red-500/20'
+                ? 'bg-amber-50 text-amber-700'
+                : 'bg-blue-50 text-blue-700'
             }`}>
-              {product.isNew ? 'NUEVO' : product.badge || 'TOP'}
+              {product.isNew ? 'Nuevo' : product.badge || 'Top'}
             </span>
           </div>
         )}
-        <div className="absolute bottom-3 right-3">
-          <span className="text-[10px] tracking-widest text-platinum/30 border border-smoke px-2 py-0.5 rounded">
-            {product.volume}
-          </span>
-        </div>
+
+        {/* Volume */}
+        <span className="absolute bottom-3 right-3 text-[10px] text-obsidian/30 font-medium">
+          {product.volume}
+        </span>
       </div>
 
       {/* Info */}
-      <div className="p-4 flex flex-col flex-1 gap-3">
-        <div>
-          <span className="text-[10px] tracking-widest uppercase text-gold/60 font-semibold">{product.brand}</span>
-          <h4 className="font-display font-bold text-pearl text-base mt-1 leading-tight">{product.name}</h4>
-          <p className="text-platinum/40 text-xs mt-1 leading-relaxed">{product.description}</p>
+      <div className="p-4 flex flex-col flex-1 gap-3 border-t border-obsidian/5">
+        <div className="flex-1">
+          <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-semibold mb-1">{product.brand}</p>
+          <h4 className="font-display font-bold text-obsidian text-sm leading-snug">{product.name}</h4>
+          <p className="text-obsidian/40 text-xs mt-1.5 leading-relaxed line-clamp-2">{product.description}</p>
         </div>
 
-        <div className="flex items-end justify-between mt-auto">
-          <div>
-            <p className="font-display font-bold text-gold text-xl">
-              ${product.price.toLocaleString('es-AR')}
-            </p>
-          </div>
-          <p className={`text-[10px] tracking-wide uppercase font-semibold ${stockColor}`}>{stockLabel}</p>
+        <div className="flex items-center justify-between pt-2 border-t border-obsidian/5">
+          <p className="font-display font-bold text-obsidian text-lg">
+            ${product.price.toLocaleString('es-AR')}
+          </p>
+          <p className={`text-[10px] font-semibold uppercase tracking-wide ${stockColor}`}>{stockLabel}</p>
         </div>
 
         <motion.button
           onClick={handleAdd}
-          className={`w-full py-2.5 text-sm font-semibold tracking-wide uppercase transition-all duration-300 rounded-xl flex items-center justify-center gap-2 ${
+          className={`w-full py-2.5 text-xs font-semibold tracking-widest uppercase rounded-lg flex items-center justify-center gap-2 transition-all duration-200 ${
             added
-              ? 'bg-green-500/20 border border-green-500/40 text-green-400'
-              : 'border border-gold/20 text-gold/70 hover:border-gold hover:text-gold hover:bg-gold/5'
+              ? 'bg-emerald-50 text-emerald-700'
+              : 'bg-obsidian text-white hover:bg-obsidian/85'
           }`}
-          whileHover={added ? {} : { scale: 1.02 }}
           whileTap={{ scale: 0.97 }}
         >
-          {added ? <><Check size={13} /> Agregado</> : <><ShoppingCart size={13} /> Agregar</>}
+          {added ? <><Check size={12} /> Agregado</> : <><ShoppingCart size={12} /> Agregar</>}
         </motion.button>
       </div>
     </motion.div>
