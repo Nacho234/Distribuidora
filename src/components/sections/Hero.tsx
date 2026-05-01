@@ -117,7 +117,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.8 }}
-          className="flex items-center justify-center gap-10 lg:gap-16 pt-6 border-t border-smoke/40"
+          className="flex items-center justify-center gap-10 lg:gap-16 pt-6"
         >
           {[
             { target: 500, suffix: '+', label: 'Salones' },
