@@ -68,7 +68,7 @@ export default function Brands() {
       <div className="overflow-hidden py-8 mb-20 border-y border-smoke/50 relative">
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-charcoal to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-charcoal to-transparent z-10" />
-        <div className="marquee-track">
+        <div className="marquee-track" style={{ animationDirection: 'reverse' }}>
           {marqueeLogos.map((logo, i) => (
             <span key={i} className="inline-flex items-center gap-8 mx-10">
               <span className="font-display font-bold text-2xl md:text-3xl text-platinum/15 hover:text-gold/70 transition-all duration-500 whitespace-nowrap tracking-[0.2em]">
