@@ -119,7 +119,7 @@ export default function Products() {
     : products
 
   return (
-    <section id="products" className="py-20 relative overflow-hidden" style={{ backgroundColor: '#F4F3F0' }}>
+    <section id="products" className="py-20 relative overflow-hidden" style={{ backgroundColor: '#DDDCDA' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Title */}
         <div ref={titleRef} className="mb-10">
