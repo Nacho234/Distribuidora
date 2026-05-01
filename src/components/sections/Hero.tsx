@@ -41,7 +41,9 @@ export default function Hero() {
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
       {/* Dark overlay so text is legible */}
-      <div className="absolute inset-0 bg-obsidian/50" />
+      <div className="absolute inset-0" style={{
+        background: 'linear-gradient(to right, rgba(26,26,26,0.80) 0%, rgba(26,26,26,0.60) 50%, rgba(26,26,26,0.20) 100%)',
+      }} />
 
       {/* Main content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
