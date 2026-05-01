@@ -41,7 +41,7 @@ export default function Hero() {
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
       {/* Dark overlay so text is legible */}
-      <div className="absolute inset-0 bg-obsidian/30" />
+      <div className="absolute inset-0 bg-obsidian/50" />
 
       {/* Main content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
